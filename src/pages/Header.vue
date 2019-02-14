@@ -1,0 +1,64 @@
+<template>
+  <div class="container-fluid">
+    <div class="row row-static">
+      <div class="col-md-12">
+        <nav class="navbar">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand logo">
+              <a href="index.html">
+                <img src="../assets/images/logo.jpg" class="img-responsive" alt="logo">
+              </a>
+            </div>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active" data-href="index">
+                <a href="index.html">
+                  首页
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li data-href="case">
+                <a href="case.html">样板房</a>
+              </li>
+              <li data-href="news">
+                <a href="news.html">新闻</a>
+              </li>
+
+              <li data-href="CustomPage">
+                <a href="CustomPage.html">关于我们</a>
+              </li>
+              <li data-href="team">
+                <a href="team.html">核心团队</a>
+              </li>
+              <li data-href="contact">
+                <a href="contact.html">联系我们</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "Header"
+};
+</script>

@@ -1,0 +1,36 @@
+/* common css */
+body {
+	font-family: "Microsoft Yahei",sans-serif;
+}
+a {
+	color: $text-color;
+	text-decoration: none;
+    &:hover,
+    &:focus {
+        color: lighten($text-color , 19.5%);
+        text-decoration: none;
+    }
+}
+
+.container-fluid {
+    .row-static {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @media (min-width: 768px){
+        .row-static {
+            max-width: 738px;
+        }
+    }
+    @media (min-width: 992px){
+        .row-static {
+            max-width: 962px;
+        }
+    }
+    @media (min-width: 1200px){
+        .row-static {
+            max-width: 1170px;
+        }
+    }
+    
+}

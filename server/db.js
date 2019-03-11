@@ -8,7 +8,7 @@ db.once('open' , () => console.log('mongo connect success.'));
 
 const homeSchema = mongoose.Schema({
     //example_title: { type: Array, default: 'undefined'},
-    example: String
+    example: Array
 })
 
 const home_models = {

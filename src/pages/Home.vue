@@ -168,6 +168,11 @@
 
 <script>
 export default {
-    name: 'Home'
+    name: 'Home',
+    mounted() {
+        this.$http.get('/api/home/get_example').then(res => {
+            console.log(res.body);
+        })
+    },
 }
 </script>

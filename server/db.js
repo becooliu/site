@@ -8,11 +8,14 @@ db.once('open' , () => console.log('mongo connect success.'));
 
 const homeSchema = mongoose.Schema({
     //example_title: { type: Array, default: 'undefined'},
-    example: Array
+    mod: String,
+    example_title: String,
+    example_subtitle: String,
+    example_item: Array
 })
 
-const home_models = {
-    home: mongoose.model('home', homeSchema)
+const Models = {
+    home: mongoose.model('homes', homeSchema)
 }
 
-module.exports = home_models;
+module.exports = Models;

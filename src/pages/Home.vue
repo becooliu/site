@@ -5,36 +5,20 @@
             <div class="row row-static">
                 <div class="col-md-12">
                     <div class="block-title">
-                        <h3 class="title">样板房欣赏</h3>
-                        <p class="sub-title">Example room</p>
+                        <h3 class="title">{{ example_title }}</h3>
+                        <p class="sub-title">{{ example_subtitle }}</p>
                     </div>
                 </div>
             </div>
             <div class="row row-static">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-4 col-sm-4 ">
+                        <div v-for="(item, index) in example_items" :key="index" class="col-md-4 col-sm-4">
                             <div class="card">
-                                <div class="image"><img src="images/01.item1.jpg" alt=""></div>
-                                <h3>投资规划</h3>
-                                <p>投资规划是指专业人员为客户制一订方案，以获取与风险对应的最优收益的过程。</p>
-                                <a href="CaseDetail.html" class="btn btn-more" >查看详情</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="card">
-                                <div class="image"><img src="images/01.item2.jpg" alt=""></div>
-                                <h3>投资规划</h3>
-                                <p>投资规划是指专业人员为客户制一订方案，以获取与风险对应的最优收益的过程。</p>
-                                <a href="CaseDetail.html" class="btn btn-more" >查看详情</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="card">
-                                <div class="image"><img src="images/01.item3.jpg" alt=""></div>
-                                <h3>投资规划</h3>
-                                <p>投资规划是指专业人员为客户制一订方案，以获取与风险对应的最优收益的过程。</p>
-                                <a href="CaseDetail.html" class="btn btn-more" >查看详情</a>
+                                <div class="image"><img v-bind:src="item.image" alt=""></div>
+                                <h3>{{ item.title }}</h3>
+                                <p>{{ item.introduction }}</p>
+                                <a :href="item.linkUrl" class="btn btn-more" >查看详情</a>
                             </div>
                         </div>
                     </div>
@@ -169,9 +153,22 @@
 <script>
 export default {
     name: 'Home',
+    data(){
+        return {
+            example_title: '',
+            example_subtitle: '',
+            example_data: null,
+            example_items: null
+        }
+    },
     mounted() {
         this.$http.get('/api/home/get_example').then(res => {
-            console.log(res.body);
+            //console.log(res.body.response_data.data);
+            this.example_data = res.body.response_data.data[0];
+            this.example_title = this.example_data.example_title;
+            this.example_subtitle = this.example_data.example_subtitle;
+            console.log(this.example_data);
+            this.example_items = this.example_data.example_item;
         })
     },
 }

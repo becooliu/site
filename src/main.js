@@ -23,3 +23,21 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+Vue.prototype.formatDate = function(str,type) {
+  switch (type) {
+    case 'yyyy':
+    return new Date(str).getFullYear();
+    break;
+    
+    case 'mm-dd':
+    var month = new Date(str).getMonth()+1< 10 
+                ? '0'+new Date(str).getMonth()+1
+                : new Date(str).getMonth()+1;
+    return month +'.'+ new Date(str).getDate();
+    break;
+
+    default:
+    break;
+  }
+}

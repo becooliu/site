@@ -29,10 +29,16 @@ const companySchema = mongoose.Schema({
     mod_items: Array
 })
 
+const messageSchema = mongoose.Schema({
+    mod: String,
+    mod_items: Array
+})
+
 const Models = {
     home: mongoose.model('homes', homeSchema),
     news: mongoose.model('news', newsSchema),
-    company: mongoose.model('companies', companySchema)
+    company: mongoose.model('companies', companySchema),
+    message: mongoose.model('messages', messageSchema)
 }
 
 module.exports = Models;

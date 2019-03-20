@@ -27,26 +27,29 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active" data-href="index">
+              <li :class="{active: activeFlag == 0}" @click="changeFlag(0)">
                 <a href="index.html">
                   首页
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li data-href="case">
-                <a href="case.html">样板房</a>
+              <li :class="{active: activeFlag == 1}" @click="changeFlag(1)">
+                <router-link :to="{name: 'case'}" tag="a">案例</router-link>
               </li>
-              <li data-href="news">
+              <!-- <li data-href="case">
+                <a href="javascript:void(0);" v-link="/case">样板房</a>
+              </li>-->
+              <li :class="{active: activeFlag == 2}" @click="changeFlag(2)">
                 <a href="news.html">新闻</a>
               </li>
 
-              <li data-href="CustomPage">
+              <li :class="{active: activeFlag == 3}" @click="changeFlag(3)">
                 <a href="CustomPage.html">关于我们</a>
               </li>
-              <li data-href="team">
+              <li :class="{active: activeFlag == 4}" @click="changeFlag(4)">
                 <a href="team.html">核心团队</a>
               </li>
-              <li data-href="contact">
+              <li :class="{active: activeFlag == 5}" @click="changeFlag(5)">
                 <a href="contact.html">联系我们</a>
               </li>
             </ul>
@@ -59,6 +62,21 @@
 </template>
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      activeFlag: 0
+    };
+  },
+  methods: {
+    changeFlag(num) {
+      this.activeFlag = num;
+    }
+  }
 };
 </script>
+<style lang="css" scope>
+.nav.navbar-nav li.active a {
+  background-color: #eee;
+}
+</style>

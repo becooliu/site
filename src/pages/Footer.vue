@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="copy-right">
-                <span>&copy;2010-2017 abc.cn All Rights Reserved.</span>
+                <span>&copy;2010-{{year}} {{domain}} All Rights Reserved.</span>
             </div>
         </div>
     </div>
@@ -12,6 +12,12 @@
 
 <script>
 export default {
-    name: 'Footer'
+    name: 'Footer',
+    data(){
+        return {
+            year: new Date().getFullYear(),
+            domain: 'abc.cn'
+        }
+    }
 }
 </script>

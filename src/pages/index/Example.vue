@@ -44,7 +44,7 @@ export default {
             this.example_data = res.body.response_data.data[0];
             this.example_title = this.example_data.example_title;
             this.example_subtitle = this.example_data.example_subtitle;
-            console.log(this.example_data);
+            //console.log(this.example_data);
             this.example_items = this.example_data.example_item;
         })
     }

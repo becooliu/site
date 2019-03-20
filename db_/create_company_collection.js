@@ -7,6 +7,7 @@ MongoClient.connect(connect_url, function(err , db) {
     let ins_data = {
         mod: 'company',
         mod_items: [{
+            tel: '027-33225698',
             company_name: '某某有限公司公司',
             address: '苏州市金鸡湖大道00号',
             zip_code: '230020',

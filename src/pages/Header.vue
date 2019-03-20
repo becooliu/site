@@ -40,7 +40,7 @@
                 <a href="javascript:void(0);" v-link="/case">样板房</a>
               </li>-->
               <li :class="{active: activeFlag == 2}" @click="changeFlag(2)">
-                <a href="news.html">新闻</a>
+                <router-link tag="a" :to="{name: 'news'}">新闻</router-link>
               </li>
 
               <li :class="{active: activeFlag == 3}" @click="changeFlag(3)">

@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/pages/index/Home'
 import Example from '@/pages/index/Example'
 import News from '@/pages/news/news'
-
+import About from '@/pages/aboutus/About'
 
 Vue.use(Router)
 
@@ -24,6 +24,11 @@ export default new Router({
       path: '/news',
       name: 'news',
       component: News
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
     }
   ]
 })

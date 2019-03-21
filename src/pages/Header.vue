@@ -44,7 +44,7 @@
               </li>
 
               <li :class="{active: activeFlag == 3}" @click="changeFlag(3)">
-                <a href="CustomPage.html">关于我们</a>
+                <router-link tab="a" :to="{name: 'about'}">关于我们</router-link>
               </li>
               <li :class="{active: activeFlag == 4}" @click="changeFlag(4)">
                 <a href="team.html">核心团队</a>

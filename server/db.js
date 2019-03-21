@@ -29,8 +29,18 @@ const companySchema = mongoose.Schema({
     mod_items: Array
 })
 
+//留言
 const messageSchema = mongoose.Schema({
     mod: String,
+    mod_items: Array
+})
+
+//关于我们
+const aboutSchema = mongoose.Schema({
+    mod: String,
+    mod_title: String,
+    mod_subtitle: String,
+    mod_cover_img: String,
     mod_items: Array
 })
 
@@ -38,7 +48,8 @@ const Models = {
     home: mongoose.model('homes', homeSchema),
     news: mongoose.model('news', newsSchema),
     company: mongoose.model('companies', companySchema),
-    message: mongoose.model('messages', messageSchema)
+    message: mongoose.model('messages', messageSchema),
+    about: mongoose.model('abouts', aboutSchema)
 }
 
 module.exports = Models;

@@ -24,6 +24,10 @@ app.use(api_company);
 const api_message = require('./api_message');
 app.use(api_message);
 
+//关于我们
+const api_about = require('./api_about');
+app.use(api_about);
+
 
 
 

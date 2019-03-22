@@ -47,10 +47,10 @@
                 <router-link tab="a" :to="{name: 'about'}">关于我们</router-link>
               </li>
               <li :class="{active: activeFlag == 4}" @click="changeFlag(4)">
-                <a href="team.html">核心团队</a>
+                <router-link :to="{name: 'team'}" tag="a">核心团队</router-link>
               </li>
               <li :class="{active: activeFlag == 5}" @click="changeFlag(5)">
-                <a href="contact.html">联系我们</a>
+                <router-link :to="{name: 'contact'}" tag="a">联系我们</router-link>
               </li>
             </ul>
           </div>

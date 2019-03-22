@@ -2,10 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="block-title">
-                    <h3 class="title">{{ mod_title}}</h3>
-                    <p class="sub-title">{{ mod_subtitle }}</p>
-                </div>
+                <BlockTitle :mod-title="mod_title" :mod-subtitle="mod_subtitle"></BlockTitle>
             </div>
         </div>
         <div class="row">
@@ -33,6 +30,8 @@
     </div>
 </template>
 <script>
+import BlockTitle from '@/components/Title';
+
 export default {
     name: 'News_index',
     data () {
@@ -57,6 +56,9 @@ export default {
             this.mod_subtitle = this.news_obj.mod_sub_title;
             this.news_items = this.news_obj.mod_items;
         })
+    },
+    components: {
+        BlockTitle
     }
 }
 </script>

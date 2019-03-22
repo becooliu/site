@@ -9,8 +9,11 @@ import jquery from 'jquery'
 import './assets/css/normalize.css'
 import './assets/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css'
 import './assets/plugins/bootstrap-3.3.7-dist/js/bootstrap'
+import './assets/css/animate.css'
 
 import './assets/css/index.css'
+import Amap from 'vue-amap';
+Vue.use(Amap);
 
 Vue.config.productionTip = false
 

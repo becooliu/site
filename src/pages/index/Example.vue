@@ -3,10 +3,7 @@
         <div class="container-fluid" style="background-color: #f9f9f9;">
             <div class="row row-static">
                 <div class="col-md-12">
-                    <div class="block-title">
-                        <h3 class="title">{{ example_title }}</h3>
-                        <p class="sub-title">{{ example_subtitle }}</p>
-                    </div>
+                    <BlockTitle :mod-title="example_title" :mod-subtitle="example_subtitle"></BlockTitle>
                 </div>
             </div>
             <div class="row row-static">
@@ -28,6 +25,8 @@
     </div>
 </template>
 <script>
+import BlockTitle from '@/components/Title';
+
 export default {
     name: 'Example',
     data(){
@@ -47,6 +46,9 @@ export default {
             //console.log(this.example_data);
             this.example_items = this.example_data.example_item;
         })
+    },
+    components: {
+        BlockTitle
     }
 }
 </script>

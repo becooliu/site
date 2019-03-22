@@ -9,26 +9,28 @@ app.use(bodyParser.urlencoded({
 }))
 
 //样板房模块
-const home_example = require('./home');
+const home_example = require('./apis/api_example');
 app.use(home_example);
 
 //news 模块
-const api_news = require('./api_news');
+const api_news = require('./apis/api_news');
 app.use(api_news);
 
 //公司模块
-const api_company = require('./api_company');
+const api_company = require('./apis/api_company');
 app.use(api_company);
 
 //留言模块
-const api_message = require('./api_message');
+const api_message = require('./apis/api_message');
 app.use(api_message);
 
 //关于我们
-const api_about = require('./api_about');
+const api_about = require('./apis/api_about');
 app.use(api_about);
 
-
+//团队
+const api_team = require('./apis/api_team');
+app.use(api_team);
 
 
 app.use('*', function (req, res, next) {

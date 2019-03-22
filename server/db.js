@@ -44,12 +44,21 @@ const aboutSchema = mongoose.Schema({
     mod_items: Array
 })
 
+//团队
+const teamSchema = mongoose.Schema({
+    mod: String,
+    mod_title: String,
+    mod_subtitle: String,
+    members: Array
+});
+
 const Models = {
     home: mongoose.model('homes', homeSchema),
     news: mongoose.model('news', newsSchema),
     company: mongoose.model('companies', companySchema),
     message: mongoose.model('messages', messageSchema),
-    about: mongoose.model('abouts', aboutSchema)
+    about: mongoose.model('abouts', aboutSchema),
+    team: mongoose.model('teams', teamSchema)
 }
 
 module.exports = Models;

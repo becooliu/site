@@ -38,6 +38,11 @@ import Message from './Message.vue';
 
 export default {
     name: 'Home',
+    data(){
+        return {
+            isLoading: false
+        }
+    },
     components: {
         Example,
         NewsIndex,

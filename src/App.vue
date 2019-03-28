@@ -1,20 +1,25 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <Header v-if="checkIsLogin()"></Header>
     <router-view/>
-    <Footer></Footer>
+    <Footer v-if="checkIsLogin()"></Footer>
   </div>
 </template>
 
 <script>
-import Header from './pages/header'
-import Footer from './pages/Footer.vue'
+import Header from "./pages/header";
+import Footer from "./pages/Footer.vue";
 
 export default {
   name: "App",
   components: {
-	  Header,
+    Header,
     Footer
+  },
+  methods: {
+    checkIsLogin(){
+      return this.$store.state.showHeaderFooter;
+    }
   }
 };
 </script>
@@ -24,6 +29,6 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align:left;
+  text-align: left;
 }
 </style>

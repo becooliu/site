@@ -6,10 +6,16 @@ import News from '@/pages/news/news'
 import About from '@/pages/aboutus/About'
 import Team from '@/pages/team/Team'
 import Contact from '@/pages/contact/Contact'
+import Admin from '@/pages/Admin/index'
+import Login from '@/user/Login'
+import Regist from '@/user/Regist'
 
 Vue.use(Router)
 
-export default new Router({
+const userKey = 'siteUser';
+import store from '../store/store.js';
+
+const vueRouter = new Router({
   routes: [
     {
       path: '/',
@@ -39,6 +45,56 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: Contact
+    },{
+      path: '/admin',
+      name: 'admin',
+      component: Admin,
+      meta: {
+        requireAuth: true,
+        showHeaderFooter: false //不显示网站头部和底部
+      }
+    },{
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        showHeaderFooter: false
+      }
+    },{
+      path: '/regist',
+      name: 'Regist',
+      component: Regist,
+      meta: {
+        showHeaderFooter: false
+      }
     }
+    
   ]
 })
+
+vueRouter.beforeEach((to ,from , next) => {
+  if (to.matched.some(record => record.meta.requireAuth)) {
+    if (!store.getters.getLoginStatus) {
+      console.log('请先登录。')
+      next({
+        path: '/login',
+        query: {redirect: to.fullPath}
+      })
+    }else {
+      next();
+    }
+  }else {
+    store.commit('$_setIsLoginStatus', true)
+    next();
+  }
+  //根据路由元信息判断是否显示网站共用的头部和底部
+  if(to.matched.some(record => record.meta.showHeaderFooter == false)) {
+    store.state.showHeaderFooter = false;
+  }else {
+    store.state.showHeaderFooter = true;
+  }
+
+  
+})
+
+export default vueRouter;

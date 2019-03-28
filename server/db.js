@@ -52,13 +52,22 @@ const teamSchema = mongoose.Schema({
     members: Array
 });
 
+//用户
+const usersSchema = mongoose.Schema({
+    username: String,
+    password: String,
+    avatar: String,
+    nick_name: String
+})
+
 const Models = {
     home: mongoose.model('homes', homeSchema),
     news: mongoose.model('news', newsSchema),
     company: mongoose.model('companies', companySchema),
     message: mongoose.model('messages', messageSchema),
     about: mongoose.model('abouts', aboutSchema),
-    team: mongoose.model('teams', teamSchema)
+    team: mongoose.model('teams', teamSchema),
+    users: mongoose.model('users', usersSchema)
 }
 
 module.exports = Models;

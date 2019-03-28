@@ -1290,3 +1290,9 @@ a:hover, a:focus {
 .copy-right span {
   color: #e2e2e2;
 }
+.panel_header {
+  margin-bottom: 2rem;
+}
+.panel_header h2 {
+  text-align: center;
+}

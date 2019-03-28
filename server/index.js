@@ -32,6 +32,10 @@ app.use(api_about);
 const api_team = require('./apis/api_team');
 app.use(api_team);
 
+//用户注册
+const api_users_regist = require('./apis/user/regist');
+app.use(api_users_regist)
+
 
 app.use('*', function (req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);

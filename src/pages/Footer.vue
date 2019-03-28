@@ -4,6 +4,7 @@
         <div class="col-md-12">
             <div class="copy-right">
                 <span>&copy;2010-{{year}} {{domain}} All Rights Reserved.</span>
+                <router-link tag="a" :to="{path: '/admin'}" style="color: #fff;">管理后台</router-link>
             </div>
         </div>
     </div>

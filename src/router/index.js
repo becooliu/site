@@ -12,7 +12,9 @@ import Regist from '@/user/Regist'
 
 Vue.use(Router)
 
-const userKey = 'siteUser';
+const g_data = require('../utils/global');
+const userKey = g_data.userKey;
+
 import store from '../store/store.js';
 
 const vueRouter = new Router({
@@ -55,7 +57,7 @@ const vueRouter = new Router({
       }
     },{
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: Login,
       meta: {
         showHeaderFooter: false
@@ -74,17 +76,18 @@ const vueRouter = new Router({
 
 vueRouter.beforeEach((to ,from , next) => {
   if (to.matched.some(record => record.meta.requireAuth)) {
-    if (!store.getters.getLoginStatus) {
+    if (localStorage.getItem(userKey)) {
+      next();
+    }else {
       console.log('请先登录。')
       next({
         path: '/login',
         query: {redirect: to.fullPath}
       })
-    }else {
-      next();
+
     }
   }else {
-    store.commit('$_setIsLoginStatus', true)
+    store.commit('$_setIsLogin', true)
     next();
   }
   //根据路由元信息判断是否显示网站共用的头部和底部

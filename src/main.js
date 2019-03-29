@@ -6,6 +6,9 @@ import router from './router'
 import VueRresource from 'vue-resource'
 Vue.use(VueRresource);
 
+import Common from './utils/common';
+Vue.use(Common);
+
 import jquery from 'jquery'
 import './assets/css/normalize.css'
 import './assets/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css'
@@ -24,7 +27,6 @@ Vue.use(ElementUI);
 Vue.config.productionTip = false
 
 
-const userKey = 'siteUser';
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -33,35 +35,3 @@ new Vue({
   template: '<App/>',
   store
 })
-
-Vue.prototype.formatDate = function(str,type) {
-  switch (type) {
-    case 'yyyy':
-    return new Date(str).getFullYear();
-    break;
-    
-    case 'mm-dd':
-    var month = new Date(str).getMonth()+1< 10 
-                ? '0'+new Date(str).getMonth()+1
-                : new Date(str).getMonth()+1;
-    return month +'.'+ new Date(str).getDate();
-    break;
-
-    default:
-    break;
-  }
-}
-//扩展校验是否是手机号和邮箱的方法
-Vue.prototype.IsMobile = function (m) {
-  var p = /^1[3456789][0-9]{9}$/gi;
-  return p.test(m);
-}
-Vue.prototype.IsEmail = function(email){
-var p = /\s*\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*/;
-return p.test(email);
-}
-
-//检验是否登录
-Vue.prototype.checkIsLogin = function () {
-  return localStorage.getItem(userKey);
-}

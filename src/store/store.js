@@ -2,7 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 Vue.use(Vuex);
 
-const userKey = 'siteUser';
+const g_data = require('../utils/global');
+const userKey = g_data.userKey;
+
 const store = new Vuex.Store({
     state: {
         showHeaderFooter: true,
@@ -21,8 +23,11 @@ const store = new Vuex.Store({
         $_changeLoadingStatus(state, bool) {
             state.isLoading = bool;
         },
-        $_setIsLoginStatus(state , bool) {
+        $_setIsLogin(state , bool) {
             state.isLogin = bool;
+        },
+        $_setLocalStorage(state,value) {
+            localStorage.setItem(userKey, JSON.stringify(value));
         }
     }
 })

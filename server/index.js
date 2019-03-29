@@ -36,6 +36,10 @@ app.use(api_team);
 const api_users_regist = require('./apis/user/regist');
 app.use(api_users_regist)
 
+//用户登录
+const api_users_login = require('./apis/user/login');
+app.use(api_users_login);
+
 
 app.use('*', function (req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);
